@@ -1,6 +1,7 @@
 "use client";
 import { Inter } from "next/font/google";
-import { ConfigProvider } from "antd";
+import { ConfigProvider as AntdProvider } from "antd";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import StyledComponentsRegistry from "lib/StyledComponentsRegistry";
 import AntdRegistry from "lib/AntdRegistry";
@@ -10,6 +11,8 @@ import GlobalStyle from "theme/global";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const queryClient = new QueryClient();
+
 export default function RootLayout({
   children,
 }: {
@@ -18,14 +21,16 @@ export default function RootLayout({
   return (
     <html className={inter.className}>
       <body>
-        <ConfigProvider theme={theme}>
+        <QueryClientProvider client={queryClient}>
           <AntdRegistry>
-            <StyledComponentsRegistry>
-              <GlobalStyle />
-              {children}
-            </StyledComponentsRegistry>
+            <AntdProvider theme={theme}>
+              <StyledComponentsRegistry>
+                <GlobalStyle />
+                {children}
+              </StyledComponentsRegistry>
+            </AntdProvider>
           </AntdRegistry>
-        </ConfigProvider>
+        </QueryClientProvider>
       </body>
     </html>
   );
