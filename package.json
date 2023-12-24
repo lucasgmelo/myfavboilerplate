@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate": "npx plop --plopfile generators/plopfile.js"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.18.1",
@@ -23,6 +24,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
+    "plop": "^4.0.1",
     "typescript": "^5"
   }
 }
