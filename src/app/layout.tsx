@@ -1,3 +1,4 @@
+"use client";
 import { Inter } from "next/font/google";
 import { ConfigProvider } from "antd";
 
@@ -5,6 +6,7 @@ import StyledComponentsRegistry from "lib/StyledComponentsRegistry";
 import AntdRegistry from "lib/AntdRegistry";
 
 import theme from "theme/antdThemeConfig";
+import GlobalStyle from "theme/global";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +20,10 @@ export default function RootLayout({
       <body>
         <ConfigProvider theme={theme}>
           <AntdRegistry>
-            <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+            <StyledComponentsRegistry>
+              <GlobalStyle />
+              {children}
+            </StyledComponentsRegistry>
           </AntdRegistry>
         </ConfigProvider>
       </body>
