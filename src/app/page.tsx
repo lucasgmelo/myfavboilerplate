@@ -1,16 +1,7 @@
 "use client";
-import styled from "styled-components";
-import { Button as AntdButton } from "antd";
 
-const Button = styled(AntdButton)`
-  font-size: 24px;
-`;
+import HomeView from "views/Home";
 
 export default function Home() {
-  return (
-    <main>
-      <h1>Boilerplate</h1>
-      <Button>Testando</Button>
-    </main>
-  );
+  return <HomeView />;
 }
