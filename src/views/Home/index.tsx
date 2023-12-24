@@ -1,19 +1,35 @@
-import { Button } from "antd";
+import { Space, Tag } from "antd";
 import * as S from "./styles";
+import Link from "next/link";
+
+const techs = [
+  "Next",
+  "Typescript",
+  "Styled Components",
+  "Ant Design",
+  "React Query",
+  "Plop",
+];
 
 const Home = () => (
   <S.Wrapper>
-    <h1>my fav Next boilerplate</h1>
-    <h3>All configured to develop a high-level interface.</h3>
-    <ul>
-      <li>Next</li>
-      <li>Typescript</li>
-      <li>Styled Components</li>
-      <li>Ant Design</li>
-      <li>React Query</li>
-      <li>Plop</li>
-    </ul>
-    <Button>Veja o Template</Button>
+    <S.Title>My favourite Next boilerplate 🌱</S.Title>
+    <S.Subtitle>All configured to develop a high-level interface.</S.Subtitle>
+
+    <Space size={[0, 8]} wrap>
+      {techs.map((tag) => (
+        <Tag key={tag} color="#7B9668">
+          {tag}
+        </Tag>
+      ))}
+    </Space>
+
+    <Link
+      href="https://github.com/lucasgmelo/myfavboilerplate"
+      target="__blank"
+    >
+      Github template
+    </Link>
   </S.Wrapper>
 );
 

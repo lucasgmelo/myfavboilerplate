@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 87.5%;
     }
   }
-
+  
   body, input, textarea, select, button {
     font: 400 1rem "Inter", sans-serif;
   }
