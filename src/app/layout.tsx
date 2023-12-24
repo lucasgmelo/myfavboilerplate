@@ -1,4 +1,9 @@
-import StyledComponentsRegistry from "lib/registry";
+import { ConfigProvider } from "antd";
+
+import StyledComponentsRegistry from "lib/StyledComponentsRegistry";
+import AntdRegistry from "lib/AntdRegistry";
+
+import theme from "theme/antdThemeConfig";
 
 export default function RootLayout({
   children,
@@ -8,7 +13,11 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <ConfigProvider theme={theme}>
+          <AntdRegistry>
+            <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          </AntdRegistry>
+        </ConfigProvider>
       </body>
     </html>
   );
